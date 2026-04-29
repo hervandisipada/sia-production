@@ -1,34 +1,38 @@
 <?php
 
-$host = 'localhost';
-$db   = 'sia_pawon';
-$user = 'root';
-$pass = '';
-$charset = 'utf8mb4';
+class Database {
+    private static $instance = null;
+    private $pdo;
 
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-$options = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES   => false,
-];
+    private $host = '127.0.0.1';
+    private $db   = 'rm_pawon';
+    private $user = 'root';
+    private $pass = '';
+    private $charset = 'utf8mb4';
 
-try {
-     $pdo = new PDO($dsn, $user, $pass, $options);
-} catch (\PDOException $e) {
-     // If database doesn't exist, we might want to handle it during migration
-     // For now, just a simple connection
-     $pdo = null;
-}
+    private function __construct() {
+        $dsn = "mysql:host=$this->host;dbname=$this->db;charset=$this->charset";
+        $options = [
+            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES   => false,
+        ];
 
-/**
- * Global function to get PDO connection
- */
-function getDB() {
-    global $pdo, $host, $user, $pass, $charset, $options, $db;
-    if ($pdo === null) {
-        $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-        $pdo = new PDO($dsn, $user, $pass, $options);
+        try {
+            $this->pdo = new PDO($dsn, $this->user, $this->pass, $options);
+        } catch (\PDOException $e) {
+            throw new \PDOException($e->getMessage(), (int)$e->getCode());
+        }
     }
-    return $pdo;
+
+    public static function getInstance() {
+        if (self::$instance === null) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
+
+    public function getConnection() {
+        return $this->pdo;
+    }
 }
