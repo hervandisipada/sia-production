@@ -10,7 +10,7 @@
 
     <div class="w-full max-w-md animate-fade-in">
         <div class="text-center mb-8">
-            <div class="inline-flex items-center justify-center w-16 h-16 bg-yellow-600 rounded-2xl shadow-xl shadow-yellow-500/20 mb-4 transform hover:rotate-6 transition-transform duration-300">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-brand-gold rounded-2xl shadow-xl shadow-brand-gold/20 mb-4 transform hover:rotate-6 transition-transform duration-300">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
@@ -37,16 +37,16 @@
                 
                 <div>
                     <label class="block text-slate-700 text-xs font-bold uppercase tracking-widest mb-2 ml-1" for="email">Email Address</label>
-                    <input class="w-full bg-slate-50 border-slate-200 border-2 rounded-2xl py-3 px-4 text-slate-800 leading-tight focus:outline-none focus:border-yellow-500 focus:ring-4 focus:ring-yellow-500/10 transition-all placeholder:text-slate-400" id="email" type="email" name="email" placeholder="nama@rmpawon.com" required>
+                    <input class="w-full bg-brand-cream border-brand-dark/10 focus:border-brand-gold focus:ring-brand-yellow/10" id="email" type="email" name="email" placeholder="nama@rmpawon.com" required>
                 </div>
                 
                 <div>
                     <label class="block text-slate-700 text-xs font-bold uppercase tracking-widest mb-2 ml-1" for="password">Password</label>
-                    <input class="w-full bg-slate-50 border-slate-200 border-2 rounded-2xl py-3 px-4 text-slate-800 leading-tight focus:outline-none focus:border-yellow-500 focus:ring-4 focus:ring-yellow-500/10 transition-all placeholder:text-slate-400" id="password" type="password" name="password" placeholder="••••••••" required>
+                    <input class="w-full bg-brand-cream border-brand-dark/10 focus:border-brand-gold focus:ring-brand-yellow/10" id="password" type="password" name="password" placeholder="••••••••" required>
                 </div>
                 
                 <div class="pt-2">
-                    <button class="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-4 px-6 rounded-2xl shadow-lg shadow-yellow-600/20 active:scale-[0.98] transition-all" type="submit">
+                    <button class="w-full bg-brand-gold hover:bg-yellow-700 text-white font-bold py-4 px-6 rounded-2xl shadow-lg shadow-yellow-600/20 active:scale-[0.98] transition-all" type="submit">
                         Masuk ke Sistem
                     </button>
                 </div>
