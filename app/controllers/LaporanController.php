@@ -32,6 +32,10 @@ class LaporanController extends BaseController {
         $stmt->execute([$dari, $sampai]);
         $data = $stmt->fetchAll();
 
+        if (isset($_GET['export']) && $_GET['export'] === 'csv') {
+            $this->exportProduksiCsv($data, $dari, $sampai);
+        }
+
         $this->view('laporan/produksi', [
             'title' => 'Laporan Produksi',
             'data' => $data,
@@ -96,5 +100,25 @@ class LaporanController extends BaseController {
             'dari' => $dari,
             'sampai' => $sampai
         ]);
+    }
+
+    private function exportProduksiCsv($data, $dari, $sampai) {
+        header('Content-Type: text/csv; charset=utf-8');
+        header('Content-Disposition: attachment; filename=Laporan_Produksi_' . $dari . '_sd_' . $sampai . '.csv');
+        $output = fopen('php://output', 'w');
+        fputcsv($output, ['Tanggal', 'Item Menu', 'Rencana', 'Hasil Baik', 'Waste', 'Status']);
+        
+        foreach ($data as $row) {
+            fputcsv($output, [
+                date('Y-m-d', strtotime($row['tanggal'])),
+                $row['nama_menu'],
+                $row['jumlah_rencana'],
+                $row['jumlah_baik'] !== null ? $row['jumlah_baik'] : 0,
+                $row['jumlah_rusak'] !== null ? $row['jumlah_rusak'] : 0,
+                $row['status']
+            ]);
+        }
+        fclose($output);
+        exit;
     }
 }
