@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,71 +45,100 @@
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-stone-50 to-stone-200 dark:from-stone-900 dark:to-stone-800 flex items-center justify-center min-h-screen p-2 font-sans antialiased transition-colors duration-300">
+
+<body
+    class="bg-gradient-to-br from-stone-50 to-stone-200 dark:from-stone-900 dark:to-stone-800 flex items-center justify-center min-h-screen p-2 font-sans antialiased transition-colors duration-300">
 
     <!-- Dark Mode Toggle -->
-    <button id="theme-toggle" type="button" class="absolute top-4 right-4 text-stone-500 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 focus:outline-none focus:ring-4 focus:ring-stone-200 dark:focus:ring-stone-700 rounded-lg text-sm p-2.5 transition-colors">
-        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+    <button id="theme-toggle" type="button"
+        class="absolute top-4 right-4 text-stone-500 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 focus:outline-none focus:ring-4 focus:ring-stone-200 dark:focus:ring-stone-700 rounded-lg text-sm p-2.5 transition-colors">
+        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+        </svg>
+        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                fill-rule="evenodd" clip-rule="evenodd"></path>
+        </svg>
     </button>
 
     <div class="w-full max-w-md animate-fade-in py-4">
         <div class="text-center mb-4">
-            <div class="inline-flex items-center justify-center w-12 h-12 bg-brand-yellow rounded-xl shadow-xl shadow-brand-yellow/20 mb-2 transform hover:rotate-6 transition-transform duration-300">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-stone-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            <div
+                class="inline-flex items-center justify-center w-12 h-12 bg-brand-yellow rounded-xl shadow-xl shadow-brand-yellow/20 mb-2 transform hover:rotate-6 transition-transform duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-stone-900" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
             </div>
             <h1 class="text-2xl font-black text-stone-900 dark:text-stone-50 tracking-tight">Pawon Selaras</h1>
             <p class="text-stone-500 dark:text-stone-400 text-xs font-medium">Sistem Informasi Produksi</p>
         </div>
 
-        <div class="bg-white/80 dark:bg-stone-900/80 backdrop-blur-xl p-6 rounded-2xl shadow-2xl border border-white dark:border-stone-700/50">
+        <div
+            class="bg-white/80 dark:bg-stone-900/80 backdrop-blur-xl p-6 rounded-2xl shadow-2xl border border-white dark:border-stone-700/50">
             <h2 class="text-lg font-bold text-stone-800 dark:text-stone-100 mb-2 text-center">Selamat Datang!</h2>
             <p class="text-[10px] text-stone-500 dark:text-stone-400 text-center mb-6 leading-relaxed">
-                <span class="font-bold text-brand-yellow">PENTING:</span> Akses sistem ini hanya diperuntukkan bagi <span class="dark:text-stone-200">Karyawan</span> dan <span class="dark:text-stone-200">Owner</span> RM Pawon Selaras. Pelanggan dapat melihat menu melalui halaman utama.
+                <span class="font-bold text-brand-yellow">PENTING:</span> Akses sistem ini hanya diperuntukkan bagi
+                <span class="dark:text-stone-200">Karyawan</span> dan <span class="dark:text-stone-200">Owner</span> RM
+                Pawon Selaras. Pelanggan dapat melihat menu melalui halaman utama.
             </p>
-            
+
             <?php if (isset($_SESSION['flash'])): ?>
                 <?php if ($_SESSION['flash']['type'] === 'error'): ?>
-                <div class="mb-4 flex items-center gap-2 p-3 text-xs text-rose-800 bg-rose-50 border border-rose-100 rounded-xl animate-shake">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
-                    </svg>
-                    <span class="font-medium"><?= $_SESSION['flash']['message'] ?></span>
-                </div>
+                    <div
+                        class="mb-4 flex items-center gap-2 p-3 text-xs text-rose-800 bg-rose-50 border border-rose-100 rounded-xl animate-shake">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span class="font-medium"><?= $_SESSION['flash']['message'] ?></span>
+                    </div>
                 <?php elseif ($_SESSION['flash']['type'] === 'success'): ?>
-                <div class="mb-4 flex items-center gap-2 p-3 text-xs text-emerald-800 bg-emerald-50 border border-emerald-100 rounded-xl animate-fade-in">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                    </svg>
-                    <span class="font-medium"><?= $_SESSION['flash']['message'] ?></span>
-                </div>
+                    <div
+                        class="mb-4 flex items-center gap-2 p-3 text-xs text-emerald-800 bg-emerald-50 border border-emerald-100 rounded-xl animate-fade-in">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span class="font-medium"><?= $_SESSION['flash']['message'] ?></span>
+                    </div>
                 <?php endif; ?>
                 <?php unset($_SESSION['flash']); ?>
             <?php endif; ?>
 
             <form action="<?= BASE_URL ?>auth/login" method="POST" class="space-y-3">
                 <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
-                
+
                 <div>
                     <label class="form-label" for="email">Email Address</label>
-                    <input class="form-input" id="email" type="email" name="email" placeholder="nama@rmpawon.com" required>
+                    <input class="form-input" id="email" type="email" name="email" placeholder="nama@rmpawon.com"
+                        required>
                 </div>
-                
+
                 <div class="relative group">
                     <label class="form-label" for="password">Password</label>
                     <div class="relative">
-                        <input class="form-input pr-12" id="password" type="password" name="password" placeholder="••••••••" required>
-                        <button type="button" id="togglePassword" class="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-stone-400 hover:text-brand-yellow transition-colors focus:outline-none">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" id="eyeIcon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        <input class="form-input pr-12" id="password" type="password" name="password"
+                            placeholder="••••••••" required>
+                        <button type="button" id="togglePassword"
+                            class="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-stone-400 hover:text-brand-yellow transition-colors focus:outline-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" id="eyeIcon" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                             </svg>
                         </button>
                     </div>
                 </div>
-                
+
                 <div class="pt-2 grid grid-cols-2 gap-3">
                     <a href="<?= BASE_URL ?>home/index" class="btn-secondary w-full">
                         Kembali
@@ -121,8 +151,9 @@
 
             <div class="mt-4 pt-4 border-t border-stone-100 dark:border-stone-800 text-center">
                 <p class="text-stone-500 dark:text-stone-400 text-xs">
-                    Belum punya akun? 
-                    <a href="<?= BASE_URL ?>auth/register" class="text-stone-900 dark:text-stone-50 font-bold hover:underline">Daftar</a>
+                    Belum punya akun?
+                    <a href="<?= BASE_URL ?>auth/register"
+                        class="text-stone-900 dark:text-stone-50 font-bold hover:underline">Daftar</a>
                 </p>
             </div>
         </div>
@@ -133,17 +164,41 @@
     </div>
 
     <style>
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes shake {
-        0%, 100% { transform: translateX(0); }
-        25% { transform: translateX(-4px); }
-        75% { transform: translateX(4px); }
-    }
-    .animate-fade-in { animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-    .animate-shake { animation: shake 0.2s ease-in-out 0s 2; }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-4px);
+            }
+
+            75% {
+                transform: translateX(4px);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .animate-shake {
+            animation: shake 0.2s ease-in-out 0s 2;
+        }
     </style>
     <script>
         var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
@@ -158,7 +213,7 @@
 
         var themeToggleBtn = document.getElementById('theme-toggle');
 
-        themeToggleBtn.addEventListener('click', function() {
+        themeToggleBtn.addEventListener('click', function () {
             // toggle icons inside button
             themeToggleDarkIcon.classList.toggle('hidden');
             themeToggleLightIcon.classList.toggle('hidden');
@@ -172,7 +227,7 @@
                     document.documentElement.classList.remove('dark');
                     localStorage.setItem('color-theme', 'light');
                 }
-            // if NOT set via local storage previously
+                // if NOT set via local storage previously
             } else {
                 if (document.documentElement.classList.contains('dark')) {
                     document.documentElement.classList.remove('dark');
@@ -190,10 +245,10 @@
         const eyeIcon = document.getElementById('eyeIcon');
 
         if (togglePassword && passwordInput) {
-            togglePassword.addEventListener('click', function() {
+            togglePassword.addEventListener('click', function () {
                 const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
                 passwordInput.setAttribute('type', type);
-                
+
                 // Toggle Icon
                 if (type === 'text') {
                     eyeIcon.innerHTML = `
@@ -209,5 +264,5 @@
         }
     </script>
 </body>
-</html>
 
+</html>
