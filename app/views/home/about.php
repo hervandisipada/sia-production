@@ -45,7 +45,8 @@
                             ['name' => 'Stefanus Rapo', 'id' => '24304079', 'role' => 'Analis Akuntansi'],
                             ['name' => 'Hendriyana Hendrik', 'id' => '24304100', 'role' => 'Koordinator Keuangan'],
                             ['name' => 'Angel Hengkeng', 'id' => '24304063', 'role' => 'Penjamin Kualitas'],
-                            ['name' => 'Ni Kadek S. T. Dewi', 'id' => '24304010', 'role' => 'Dokumentasi Laporan']
+                            ['name' => 'Nikadek S. R Dewi', 'id' => '24304010', 'role' => 'Dokumentasi Laporan'],
+                            ['name' => 'Charol Kumayas', 'id' => '24304123', 'role' => 'Manajemen Data']
                         ];
                         foreach ($members as $m): ?>
                             <div
