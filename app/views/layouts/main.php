@@ -33,9 +33,12 @@
 
     <div class="flex h-screen overflow-hidden bg-stone-50">
         
+        <!-- Mobile Overlay -->
+        <div id="sidebarOverlay" class="fixed inset-0 bg-stone-900/50 z-40 hidden lg:hidden backdrop-blur-sm transition-opacity"></div>
+
         <!-- Sidebar -->
-        <aside class="w-72 bg-white flex-shrink-0 hidden lg:flex flex-col border-r border-stone-200">
-            <div class="p-6 bg-white border-b border-stone-100">
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-72 bg-white flex flex-col border-r border-stone-200 transform -translate-x-full lg:relative lg:translate-x-0 transition-transform duration-300 ease-in-out">
+            <div class="p-6 bg-white border-b border-stone-100 flex items-center justify-between">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 bg-brand-yellow rounded-xl flex items-center justify-center shadow-lg shadow-brand-yellow/20">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="24 24" stroke="currentColor">
@@ -47,6 +50,11 @@
                         <p class="text-[10px] text-stone-400 uppercase tracking-[0.2em] font-semibold">SIA Produksi</p>
                     </div>
                 </div>
+                <button id="closeMenuBtn" class="lg:hidden p-2 -mr-2 text-stone-400 hover:text-stone-600 rounded-lg hover:bg-stone-100 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
             </div>
             
             <nav class="flex-1 overflow-y-auto p-4 space-y-1 custom-scrollbar">
@@ -124,7 +132,7 @@
             <!-- Navbar -->
             <header class="bg-white border-b border-stone-900/10 h-20 flex items-center justify-between px-8 sticky top-0 z-10 shadow-sm">
                 <div class="flex items-center gap-4">
-                    <button class="lg:hidden p-2 rounded-lg bg-stone-100 text-stone-600">
+                    <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg bg-stone-100 text-stone-600 hover:bg-stone-200 transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                         </svg>
@@ -173,6 +181,23 @@
     .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #cbd5e1; }
     </style>
     <script src="<?= BASE_URL ?>js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const closeMenuBtn = document.getElementById('closeMenuBtn');
+
+            function toggleMenu() {
+                sidebar.classList.toggle('-translate-x-full');
+                overlay.classList.toggle('hidden');
+            }
+
+            if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', toggleMenu);
+            if (closeMenuBtn) closeMenuBtn.addEventListener('click', toggleMenu);
+            if (overlay) overlay.addEventListener('click', toggleMenu);
+        });
+    </script>
 </body>
 </html>
 
