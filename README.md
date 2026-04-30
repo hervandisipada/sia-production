@@ -28,24 +28,6 @@ Sistem Informasi Akuntansi dan Manajemen Menu untuk **RM Pawon Selaras**. Aplika
 - **Frontend**: Tailwind CSS, Vanilla JavaScript
 - **Icons**: Heroicons / Lucide Icons
 
-## 🛠️ Instalasi Lokal
-
-1. **Clone Repositori**:
-   ```bash
-   git clone https://github.com/hervandisipada/sia-production.git
-   ```
-
-2. **Konfigurasi Database**:
-   - Buat database baru bernama `sia_production`.
-   - Import file SQL (jika tersedia) atau jalankan migrasi manual.
-   - Sesuaikan konfigurasi di `app/config/database.php`.
-
-3. **Jalankan di XAMPP**:
-   - Letakkan folder project di `C:\xampp\htdocs\`.
-   - Akses melalui browser di `http://localhost/sia-production`.
-
-## 📝 Catatan Pengembangan
-Proyek ini terus dikembangkan untuk mencakup modul akuntansi yang lebih mendalam, termasuk perhitungan HPP otomatis dan laporan laba rugi.
 
 ---
 Dikembangkan oleh **hervandisipada**.
