@@ -2,21 +2,66 @@
     <!-- Hero Section -->
     <div
         class="relative overflow-hidden rounded-[2.5rem] bg-white dark:bg-stone-900 text-stone-900 dark:text-white p-8 md:p-16 border border-stone-200 dark:border-white/10 shadow-xl dark:shadow-2xl transition-colors duration-300">
-        <div class="relative z-10 max-w-2xl text-left">
-            <div class="flex items-center gap-4 mb-6">
-                <img src="<?= BASE_URL ?>img/logo.png" alt="Logo Small" class="w-12 h-12 object-cover rounded-2xl shadow-xl shadow-brand-yellow/20 border-2 border-brand-yellow">
-                <span
-                    class="inline-block px-4 py-1 rounded-full bg-brand-yellow text-stone-900 text-xs font-bold uppercase tracking-widest shadow-sm">
-                    RM Pawon Selaras
-                </span>
+        <div class="relative z-10 max-w-2xl text-center md:text-left mx-auto md:mx-0">
+            <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-6">
+                <div class="flex items-center gap-3">
+                    <img src="<?= BASE_URL ?>img/logo.png" alt="Logo Small" class="w-12 h-12 object-cover rounded-2xl shadow-xl shadow-brand-yellow/20 border-2 border-brand-yellow">
+                    <span
+                        class="inline-block px-4 py-1 rounded-full bg-brand-yellow text-stone-900 text-xs font-bold uppercase tracking-widest shadow-sm">
+                        RM Pawon Selaras
+                    </span>
+                </div>
+                <!-- Real-time Status Label -->
+                <div class="flex items-center gap-2 bg-stone-100 dark:bg-stone-800/50 px-3 py-1.5 rounded-full border border-stone-200 dark:border-stone-700/50 shadow-inner">
+                    <div id="status-dot" class="w-2 h-2 rounded-full transition-all duration-500"></div>
+                    <span id="status-text" class="text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-500">Memuat...</span>
+                </div>
             </div>
+
+            <script>
+                function updateStoreStatus() {
+                    try {
+                        // WITA is Asia/Makassar (UTC+8)
+                        const options = { timeZone: 'Asia/Makassar', hour: 'numeric', hour12: false };
+                        const formatter = new Intl.DateTimeFormat('en-US', options);
+                        const hour = parseInt(formatter.format(new Date()));
+                        
+                        const statusDot = document.getElementById('status-dot');
+                        const statusText = document.getElementById('status-text');
+                        
+                        // Open: 10:00 - 16:59 (5 PM is 17)
+                        const isOpen = hour >= 10 && hour < 17;
+                        
+                        if (isOpen) {
+                            statusDot.classList.remove('bg-rose-500');
+                            statusDot.classList.add('bg-emerald-500', 'animate-pulse');
+                            statusText.innerText = 'Buka Sekarang';
+                            statusText.classList.remove('text-rose-500');
+                            statusText.classList.add('text-emerald-500');
+                        } else {
+                            statusDot.classList.remove('bg-emerald-500', 'animate-pulse');
+                            statusDot.classList.add('bg-rose-500');
+                            statusText.innerText = 'Tutup';
+                            statusText.classList.remove('text-emerald-500');
+                            statusText.classList.add('text-rose-500');
+                        }
+                    } catch (e) {
+                        console.error('Error updating status:', e);
+                    }
+                }
+                
+                // Update every 30 seconds
+                setInterval(updateStoreStatus, 30000);
+                // Initial update
+                document.addEventListener('DOMContentLoaded', updateStoreStatus);
+            </script>
             <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 tracking-tight">
                 Cita Rasa <span class="text-brand-yellow">Autentik</span> di Setiap Hidangan
             </h1>
             <p class="text-stone-500 dark:text-stone-400 text-lg mb-10 leading-relaxed font-medium">
                 UMKM kuliner terpercaya di Minahasa yang menyajikan makanan siap saji dan katering sejak 2025. Nikmati cita rasa Bakso, Mie Ayam, hingga Gado-gado legendaris kami.
             </p>
-            <div class="flex flex-wrap gap-4">
+            <div class="flex flex-wrap justify-center md:justify-start gap-4">
                 <a href="#menu-pilihan" class="btn-primary">
                     Lihat Menu
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"

@@ -38,6 +38,9 @@
                 @apply bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-stone-700 dark:text-stone-300 py-2.5 px-6 rounded-xl font-semibold shadow-sm hover:bg-stone-50 dark:hover:bg-stone-700 active:scale-[0.98] transition-all flex items-center justify-center gap-2;
             }
         }
+        .dark input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+        }
     </style>
 </head>
 
@@ -72,9 +75,28 @@
                 </button>
 
                 <?php if (isset($_SESSION['user'])): ?>
-                    <a href="<?= BASE_URL ?>dashboard" class="btn-primary py-2 px-5 text-sm">
-                        Dashboard
-                    </a>
+                    <div class="relative">
+                        <button id="navDropdownBtn" class="flex items-center justify-center p-2.5 rounded-xl bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-700 transition-all active:scale-95">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                            </svg>
+                        </button>
+                        
+                        <div id="navDropdown" class="absolute right-0 mt-3 w-56 bg-white dark:bg-stone-800 rounded-[1.5rem] shadow-2xl border border-stone-100 dark:border-stone-700/50 py-2 hidden z-[60] animate-fade-in">
+                            <a href="<?= BASE_URL ?>home/index" class="flex items-center gap-3 px-4 py-3 text-sm font-bold text-stone-700 dark:text-stone-300 hover:bg-brand-yellow hover:text-stone-900 transition-colors mx-2 rounded-xl">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                </svg>
+                                Beranda
+                            </a>
+                            <a href="<?= BASE_URL ?>dashboard" class="flex items-center gap-3 px-4 py-3 text-sm font-bold text-stone-700 dark:text-stone-300 hover:bg-brand-yellow hover:text-stone-900 transition-colors mx-2 rounded-xl border-t border-stone-50 dark:border-stone-700/50 mt-1 pt-4 md:pt-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                                </svg>
+                                Dashboard
+                            </a>
+                        </div>
+                    </div>
                 <?php else: ?>
                     <a href="<?= BASE_URL ?>auth/index"
                         class="btn-primary flex items-center gap-2 !py-2 !px-3 md:!py-2.5 md:!px-6">
@@ -136,6 +158,23 @@
                         document.documentElement.classList.add('dark');
                         localStorage.setItem('color-theme', 'dark');
                     }
+                }
+            });
+        }
+
+        // Navbar Dropdown Logic
+        const navDropdownBtn = document.getElementById('navDropdownBtn');
+        const navDropdown = document.getElementById('navDropdown');
+        
+        if (navDropdownBtn && navDropdown) {
+            navDropdownBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navDropdown.classList.toggle('hidden');
+            });
+            
+            document.addEventListener('click', (e) => {
+                if (!navDropdown.contains(e.target) && !navDropdownBtn.contains(e.target)) {
+                    navDropdown.classList.add('hidden');
                 }
             });
         }

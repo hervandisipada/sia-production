@@ -38,6 +38,9 @@
                 @apply bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-stone-700 dark:text-stone-300 py-2.5 px-6 rounded-xl font-semibold shadow-sm hover:bg-stone-50 dark:hover:bg-stone-700 active:scale-[0.98] transition-all flex items-center justify-center gap-2;
             }
         }
+        .dark input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+        }
     </style>
 </head>
 
@@ -238,33 +241,8 @@
                                 fill-rule="evenodd" clip-rule="evenodd"></path>
                         </svg>
                     </button>
-                    <div class="relative hidden lg:block">
-                        <input type="text" placeholder="Cari data..."
-                            class="w-64 bg-stone-50 dark:bg-stone-900 border-none rounded-xl px-4 py-2.5 text-sm text-stone-800 dark:text-stone-100 placeholder:text-stone-400 dark:placeholder:text-stone-500 focus:ring-2 focus:ring-brand-yellow/50 transition-all">
-                    </div>
-                    <div class="flex items-center gap-3 border-l pl-6 border-stone-900/10 dark:border-stone-700/50">
-                        <?php if (isset($_SESSION['user'])): ?>
-                            <div class="text-right hidden sm:block">
-                                <p class="text-sm font-bold text-stone-800 dark:text-stone-100">
-                                    <?= $_SESSION['user']['name'] ?? 'User' ?></p>
-                                <p class="text-[10px] text-stone-500 dark:text-stone-400 font-bold uppercase">
-                                    <?= $_SESSION['user']['role'] ?? 'Staff' ?></p>
-                            </div>
-                            <div
-                                class="w-10 h-10 rounded-xl bg-stone-100 dark:bg-stone-700 flex items-center justify-center text-stone-600 dark:text-stone-300 font-bold shadow-inner">
-                                <?= strtoupper(substr($_SESSION['user']['name'] ?? 'U', 0, 1)) ?>
-                            </div>
-                        <?php else: ?>
-                            <a href="<?= BASE_URL ?>auth/index" class="btn-primary">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                                </svg>
-                                Login
-                            </a>
-                        <?php endif; ?>
-                    </div>
+
+
                 </div>
             </header>
 
