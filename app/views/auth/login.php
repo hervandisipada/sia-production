@@ -54,7 +54,7 @@
     </style>
 </head>
 
-<body class="bg-gradient-to-br from-stone-50 to-stone-200 dark:from-stone-900 dark:to-stone-800 min-h-screen flex items-center justify-center p-4 font-sans antialiased transition-colors duration-300">
+<body class="bg-gradient-to-br from-stone-50 to-stone-200 dark:from-stone-900 dark:to-stone-800 min-h-screen flex flex-col items-center justify-center p-4 font-sans antialiased transition-colors duration-300">
 
     <!-- Dark Mode Toggle -->
     <button id="theme-toggle" type="button" class="absolute top-4 right-4 text-stone-500 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 focus:outline-none focus:ring-4 focus:ring-stone-200 dark:focus:ring-stone-700 rounded-lg text-sm p-2.5 transition-colors">
