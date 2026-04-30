@@ -20,11 +20,11 @@ class Database {
             $this->pass = '';
         } else {
             // Online Settings (InfinityFree)
-            // SILAKAN ISI SESUAI DATA DI PANEL INFINITYFREE ANDA
-            $this->host = 'sqlXXX.infinityfree.com'; // Contoh: sql123.infinityfree.com
-            $this->db   = 'if0_XXXXXX_sia';           // Contoh: if0_378412_sia
-            $this->user = 'if0_XXXXXX';              // Contoh: if0_378412
-            $this->pass = 'PASSWORD_ANDA';           // Password vPanel
+            // SETELAH ANDA MEMBUAT DATABASE DI PANEL, ISI DISINI:
+            $this->host = 'sql206.infinityfree.com'; // MySQL Hostname Online
+            $this->db   = 'if0_41791529_rm_pawon';   // Nama database online
+            $this->user = 'if0_41791529';            // Username Akun Anda
+            $this->pass = 'vE8fqPG7zyhyh5';          // Password Akun Hosting
         }
 
         $dsn = "mysql:host=$this->host;dbname=$this->db;charset=$this->charset";
