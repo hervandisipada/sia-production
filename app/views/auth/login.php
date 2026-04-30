@@ -74,7 +74,10 @@
                     <img src="<?= BASE_URL ?>img/logo.png" alt="Logo" class="relative w-40 h-40 object-cover rounded-3xl shadow-2xl bg-white/20 dark:bg-stone-800/40 backdrop-blur-md p-1 border border-white/30 dark:border-stone-700/50">
                 </div>
                 <h1 class="text-4xl font-black tracking-tight mb-4 drop-shadow-lg text-stone-900 dark:text-brand-yellow">Pawon Selaras</h1>
-                <p class="text-lg text-stone-800 dark:text-stone-400 font-medium">Sistem Informasi Produksi interaktif.</p>
+                <p class="text-lg text-stone-800 dark:text-stone-400 font-medium leading-relaxed">
+                    Sistem Informasi Produksi interaktif.<br>
+                    <span class="text-sm opacity-80">Khusus Karyawan & Owner RM Pawon Selaras.</span>
+                </p>
             </div>
         </div>
 
