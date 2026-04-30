@@ -48,4 +48,4 @@ Sistem Informasi Akuntansi dan Manajemen Menu untuk **RM Pawon Selaras**. Aplika
 Proyek ini terus dikembangkan untuk mencakup modul akuntansi yang lebih mendalam, termasuk perhitungan HPP otomatis dan laporan laba rugi.
 
 ---
-Dikembangkan dengan ❤️ untuk **Pawon Selaras**.
+Dikembangkan oleh **hervandisipada**.
