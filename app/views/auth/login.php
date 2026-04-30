@@ -151,11 +151,15 @@
                     <a href="#" class="text-brand-yellow hover:opacity-80 font-bold transition-colors">Lupa Password?</a>
                 </div>
 
-                <!-- Submit Button -->
-                <button type="submit" class="btn-primary w-full">
-                    MASUK 
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                </button>
+                <!-- Submit Buttons -->
+                <div class="pt-2 grid grid-cols-2 gap-3">
+                    <a href="<?= BASE_URL ?>home/index" class="btn-secondary w-full">
+                        Kembali
+                    </a>
+                    <button type="submit" class="btn-primary w-full">
+                        Masuk
+                    </button>
+                </div>
             </form>
 
             <div class="mt-8 relative flex items-center justify-center">
@@ -167,13 +171,9 @@
                 Belum punya akun? <a href="<?= BASE_URL ?>auth/register" class="text-stone-900 dark:text-stone-50 font-bold hover:underline transition-colors">Daftar</a>
             </div>
 
-            <div class="mt-12 text-center">
-                <a href="<?= BASE_URL ?>home/index" class="text-xs font-bold text-stone-400 hover:text-stone-600 dark:hover:text-stone-200 tracking-wider uppercase transition-colors flex items-center justify-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
-                    KEMBALI KE BERANDA
-                </a>
-            </div>
-
+            <p class="text-center text-stone-400 text-[10px] mt-12 font-medium tracking-wide">
+                &copy; <?= date('Y') ?> Hrvndi PTIK. All rights reserved.
+            </p>
         </div>
     </div>
 
