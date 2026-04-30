@@ -29,7 +29,7 @@ spl_autoload_register(function ($class) {
 });
 
 // Simple Router
-$route = isset($_GET['route']) ? $_GET['route'] : 'dashboard/index';
+$route = isset($_GET['route']) ? $_GET['route'] : 'home/index';
 $routeParts = explode('/', filter_var(rtrim($route, '/'), FILTER_SANITIZE_URL));
 
 $controllerName = ucfirst($routeParts[0] ?? 'Dashboard') . 'Controller';

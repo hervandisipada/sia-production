@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?? 'Login' ?></title>
+    <title><?= $title ?? 'Register' ?></title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         // Default to dark mode unless light is explicitly set
@@ -56,7 +56,7 @@
         <div class="text-center mb-4">
             <div class="inline-flex items-center justify-center w-12 h-12 bg-brand-yellow rounded-xl shadow-xl shadow-brand-yellow/20 mb-2 transform hover:rotate-6 transition-transform duration-300">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-stone-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
                 </svg>
             </div>
             <h1 class="text-2xl font-black text-stone-900 dark:text-stone-50 tracking-tight">Pawon Selaras</h1>
@@ -64,33 +64,41 @@
         </div>
 
         <div class="bg-white/80 dark:bg-stone-900/80 backdrop-blur-xl p-6 rounded-2xl shadow-2xl border border-white dark:border-stone-700/50">
-            <h2 class="text-lg font-bold text-stone-800 dark:text-stone-100 mb-2 text-center">Selamat Datang!</h2>
+            <h2 class="text-lg font-bold text-stone-800 dark:text-stone-100 mb-2 text-center">Registrasi Akun</h2>
             <p class="text-[10px] text-stone-500 dark:text-stone-400 text-center mb-6 leading-relaxed">
-                <span class="font-bold text-brand-yellow">PENTING:</span> Akses sistem ini hanya diperuntukkan bagi <span class="dark:text-stone-200">Karyawan</span> dan <span class="dark:text-stone-200">Owner</span> RM Pawon Selaras. Pelanggan dapat melihat menu melalui halaman utama.
+                <span class="font-bold text-brand-yellow">PENTING:</span> Registrasi ini khusus untuk <span class="dark:text-stone-200">Staf RM Pawon Selaras</span>. Akun baru memerlukan persetujuan Admin sebelum dapat digunakan.
             </p>
             
             <?php if (isset($_SESSION['flash'])): ?>
-                <?php if ($_SESSION['flash']['type'] === 'error'): ?>
                 <div class="mb-4 flex items-center gap-2 p-3 text-xs text-rose-800 bg-rose-50 border border-rose-100 rounded-xl animate-shake">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
                     </svg>
                     <span class="font-medium"><?= $_SESSION['flash']['message'] ?></span>
                 </div>
-                <?php elseif ($_SESSION['flash']['type'] === 'success'): ?>
-                <div class="mb-4 flex items-center gap-2 p-3 text-xs text-emerald-800 bg-emerald-50 border border-emerald-100 rounded-xl animate-fade-in">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                    </svg>
-                    <span class="font-medium"><?= $_SESSION['flash']['message'] ?></span>
-                </div>
-                <?php endif; ?>
                 <?php unset($_SESSION['flash']); ?>
             <?php endif; ?>
 
-            <form action="<?= BASE_URL ?>auth/login" method="POST" class="space-y-3">
+            <form action="<?= BASE_URL ?>auth/store" method="POST" class="space-y-3">
                 <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
                 
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="form-label" for="name">Nama</label>
+                        <input class="form-input" id="name" type="text" name="name" placeholder="John Doe" required>
+                    </div>
+                    <div>
+                        <label class="form-label" for="role">Role</label>
+                        <select class="form-input appearance-none" id="role" name="role" required>
+                            <option value="" disabled selected>Pilih...</option>
+                            <option value="admin">Admin</option>
+                            <option value="dapur">Dapur</option>
+                            <option value="gudang">Gudang</option>
+                            <option value="owner">Owner</option>
+                        </select>
+                    </div>
+                </div>
+
                 <div>
                     <label class="form-label" for="email">Email Address</label>
                     <input class="form-input" id="email" type="email" name="email" placeholder="nama@rmpawon.com" required>
@@ -114,15 +122,15 @@
                         Kembali
                     </a>
                     <button class="btn-primary w-full" type="submit">
-                        Masuk
+                        Daftar
                     </button>
                 </div>
             </form>
 
             <div class="mt-4 pt-4 border-t border-stone-100 dark:border-stone-800 text-center">
                 <p class="text-stone-500 dark:text-stone-400 text-xs">
-                    Belum punya akun? 
-                    <a href="<?= BASE_URL ?>auth/register" class="text-stone-900 dark:text-stone-50 font-bold hover:underline">Daftar</a>
+                    Sudah punya akun? 
+                    <a href="<?= BASE_URL ?>auth/index" class="text-stone-900 dark:text-stone-50 font-bold hover:underline">Masuk</a>
                 </p>
             </div>
         </div>
@@ -210,4 +218,3 @@
     </script>
 </body>
 </html>
-

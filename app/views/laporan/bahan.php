@@ -53,7 +53,7 @@
                             <div class="h-8 border-b border-stone-300 mx-4"></div>
                         </td>
                         <td class="px-6 py-4 text-right">
-                            <p class="text-sm font-semibold text-stone-900">Rp <?= number_format($nilai, 0, ',', '.') ?></p>
+                            <p class="text-sm font-semibold text-stone-900">Rp<?= number_format($nilai, 0, ',', '.') ?></p>
                         </td>
                     </tr>
                     <?php endforeach; ?>
@@ -62,7 +62,7 @@
                     <tr class="bg-stone-900 text-white">
                         <td colspan="<?= (isset($_GET['print']) || true) ? '3' : '3' ?>" class="px-6 py-5 text-sm font-bold text-right uppercase tracking-wider">Total Nilai Persediaan:</td>
                         <td class="hidden print:table-cell border-l border-stone-700"></td>
-                        <td class="px-6 py-5 text-right text-lg font-black text-yellow-400">Rp <?= number_format($total_nilai, 0, ',', '.') ?></td>
+                        <td class="px-6 py-5 text-right text-lg font-black text-yellow-400">Rp<?= number_format($total_nilai, 0, ',', '.') ?></td>
                     </tr>
                 </tfoot>
             </table>

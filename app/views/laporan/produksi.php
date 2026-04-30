@@ -2,8 +2,8 @@
     <!-- Header -->
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 print:hidden">
         <div>
-            <h1 class="text-2xl font-bold text-stone-800">Laporan Produksi</h1>
-            <p class="text-stone-500 text-sm">Pemantauan hasil produksi dan efisiensi operasional.</p>
+            <h1 class="text-2xl font-bold text-stone-800 dark:text-stone-100">Laporan Produksi</h1>
+            <p class="text-stone-500 dark:text-stone-400 text-sm">Pemantauan hasil produksi dan efisiensi operasional.</p>
         </div>
         <div class="flex items-center gap-3">
             <a href="<?= BASE_URL ?>laporan/produksi?dari=<?= htmlspecialchars($dari) ?>&sampai=<?= htmlspecialchars($sampai) ?>&export=csv" class="btn-secondary">
@@ -23,15 +23,15 @@
     </div>
 
     <!-- Filters Card -->
-    <div class="bg-white rounded-2xl shadow-sm border border-stone-100 p-6 print:hidden">
+    <div class="bg-white dark:bg-stone-800 rounded-2xl shadow-sm border border-stone-100 dark:border-stone-700/50 p-6 print:hidden">
         <form action="<?= BASE_URL ?>laporan/produksi" method="GET" class="flex flex-col md:flex-row items-end gap-6">
             <input type="hidden" name="route" value="laporan/produksi">
             <div class="w-full md:w-auto space-y-2">
-                <label class="block text-xs font-bold text-stone-500 uppercase tracking-widest ml-1">Rentang Tanggal</label>
+                <label class="block text-xs font-bold text-stone-500 dark:text-stone-400 uppercase tracking-widest ml-1">Rentang Tanggal</label>
                 <div class="flex items-center gap-3">
-                    <input type="date" name="dari" value="<?= htmlspecialchars($dari) ?>" class="w-full md:w-auto bg-stone-50 border-stone-200 border-2 rounded-xl py-2 px-4 text-sm text-stone-800 focus:outline-none focus:border-brand-yellow transition-all">
-                    <span class="text-stone-400 text-sm font-medium">s/d</span>
-                    <input type="date" name="sampai" value="<?= htmlspecialchars($sampai) ?>" class="w-full md:w-auto bg-stone-50 border-stone-200 border-2 rounded-xl py-2 px-4 text-sm text-stone-800 focus:outline-none focus:border-brand-yellow transition-all">
+                    <input type="date" name="dari" value="<?= htmlspecialchars($dari) ?>" class="w-full md:w-auto bg-stone-50 dark:bg-stone-900 border-stone-200 dark:border-stone-700 border-2 rounded-xl py-2 px-4 text-sm text-stone-800 dark:text-stone-200 focus:outline-none focus:border-brand-yellow transition-all">
+                    <span class="text-stone-400 dark:text-stone-500 text-sm font-medium">s/d</span>
+                    <input type="date" name="sampai" value="<?= htmlspecialchars($sampai) ?>" class="w-full md:w-auto bg-stone-50 dark:bg-stone-900 border-stone-200 dark:border-stone-700 border-2 rounded-xl py-2 px-4 text-sm text-stone-800 dark:text-stone-200 focus:outline-none focus:border-brand-yellow transition-all">
                 </div>
             </div>
             <button type="submit" class="btn-primary w-full md:w-auto">
@@ -41,7 +41,7 @@
     </div>
 
     <!-- Table Card -->
-    <div class="bg-white rounded-2xl shadow-sm border border-stone-100 overflow-hidden">
+    <div class="bg-white dark:bg-stone-800 rounded-2xl shadow-sm border border-stone-100 dark:border-stone-700/50 overflow-hidden">
         <!-- Print Only Header -->
         <div class="hidden print:block p-8 text-center border-b-2 border-stone-100">
             <h1 class="text-3xl font-black text-stone-900">Pawon Selaras</h1>
@@ -54,26 +54,26 @@
         <div class="overflow-x-auto">
             <table class="w-full text-left border-collapse">
                 <thead>
-                    <tr class="bg-stone-50/50">
-                        <th class="px-6 py-4 text-xs font-bold text-stone-500 uppercase tracking-widest border-b border-stone-100">Tanggal</th>
-                        <th class="px-6 py-4 text-xs font-bold text-stone-500 uppercase tracking-widest border-b border-stone-100">Item Menu</th>
-                        <th class="px-6 py-4 text-xs font-bold text-stone-500 uppercase tracking-widest border-b border-stone-100 text-center">Rencana</th>
-                        <th class="px-6 py-4 text-xs font-bold text-stone-500 uppercase tracking-widest border-b border-stone-100 text-center">Hasil Baik</th>
-                        <th class="px-6 py-4 text-xs font-bold text-stone-500 uppercase tracking-widest border-b border-stone-100 text-center text-rose-500">Waste</th>
-                        <th class="px-6 py-4 text-xs font-bold text-stone-500 uppercase tracking-widest border-b border-stone-100">Status</th>
+                    <tr class="bg-stone-50/50 dark:bg-stone-900/50">
+                        <th class="px-6 py-4 text-xs font-bold text-stone-500 dark:text-stone-400 uppercase tracking-widest border-b border-stone-100 dark:border-stone-700/50">Tanggal</th>
+                        <th class="px-6 py-4 text-xs font-bold text-stone-500 dark:text-stone-400 uppercase tracking-widest border-b border-stone-100 dark:border-stone-700/50">Item Menu</th>
+                        <th class="px-6 py-4 text-xs font-bold text-stone-500 dark:text-stone-400 uppercase tracking-widest border-b border-stone-100 dark:border-stone-700/50 text-center">Rencana</th>
+                        <th class="px-6 py-4 text-xs font-bold text-stone-500 dark:text-stone-400 uppercase tracking-widest border-b border-stone-100 dark:border-stone-700/50 text-center">Hasil Baik</th>
+                        <th class="px-6 py-4 text-xs font-bold text-stone-500 dark:text-stone-400 uppercase tracking-widest border-b border-stone-100 dark:border-stone-700/50 text-center text-rose-500">Waste</th>
+                        <th class="px-6 py-4 text-xs font-bold text-stone-500 dark:text-stone-400 uppercase tracking-widest border-b border-stone-100 dark:border-stone-700/50">Status</th>
                     </tr>
                 </thead>
-                <tbody class="divide-y divide-stone-50">
+                <tbody class="divide-y divide-stone-50 dark:divide-stone-700/30">
                     <?php foreach ($data as $row): ?>
-                    <tr class="hover:bg-stone-50/50 transition-colors">
+                    <tr class="hover:bg-stone-50/50 dark:hover:bg-stone-900/50 transition-colors">
                         <td class="px-6 py-4">
-                            <p class="text-sm font-semibold text-stone-800"><?= date('d M Y', strtotime($row['tanggal'])) ?></p>
+                            <p class="text-sm font-semibold text-stone-800 dark:text-stone-100"><?= date('d M Y', strtotime($row['tanggal'])) ?></p>
                         </td>
                         <td class="px-6 py-4">
-                            <p class="text-sm font-medium text-stone-700"><?= htmlspecialchars($row['nama_menu']) ?></p>
+                            <p class="text-sm font-medium text-stone-700 dark:text-stone-300"><?= htmlspecialchars($row['nama_menu']) ?></p>
                         </td>
                         <td class="px-6 py-4 text-center">
-                            <span class="inline-flex items-center justify-center min-w-[32px] px-2 py-1 bg-stone-100 rounded-lg text-sm font-bold text-stone-600">
+                            <span class="inline-flex items-center justify-center min-w-[32px] px-2 py-1 bg-stone-100 dark:bg-stone-700 rounded-lg text-sm font-bold text-stone-600 dark:text-stone-300">
                                 <?= htmlspecialchars($row['jumlah_rencana']) ?>
                             </span>
                         </td>
@@ -91,9 +91,9 @@
                             <?php 
                             $status_class = '';
                             switch($row['status']) {
-                                case 'selesai': $status_class = 'bg-emerald-50 text-emerald-600 border-emerald-100'; break;
-                                case 'produksi': $status_class = 'bg-stone-50 text-brand-yellow border-yellow-100'; break;
-                                default: $status_class = 'bg-stone-100 text-stone-600 border-stone-200';
+                                case 'selesai': $status_class = 'bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 border-emerald-100 dark:border-emerald-800'; break;
+                                case 'produksi': $status_class = 'bg-stone-50 dark:bg-stone-900 text-brand-yellow border-yellow-100 dark:border-brand-yellow/30'; break;
+                                default: $status_class = 'bg-stone-100 dark:bg-stone-700 text-stone-600 dark:text-stone-300 border-stone-200 dark:border-stone-600';
                             }
                             ?>
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold uppercase border <?= $status_class ?>">
@@ -106,10 +106,10 @@
                     <tr>
                         <td colspan="6" class="px-6 py-12 text-center">
                             <div class="flex flex-col items-center gap-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-stone-200" fill="none" viewBox="24 24" stroke="currentColor">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-stone-200 dark:text-stone-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                 </svg>
-                                <p class="text-stone-400 font-medium">Tidak ada data laporan untuk periode ini.</p>
+                                <p class="text-stone-400 dark:text-stone-500 font-medium">Tidak ada data laporan untuk periode ini.</p>
                             </div>
                         </td>
                     </tr>
@@ -121,15 +121,15 @@
 
     <!-- Additional Links -->
     <div class="flex flex-wrap items-center gap-4 py-4 print:hidden">
-        <a href="<?= BASE_URL ?>laporan/hpp" class="group flex items-center gap-2 bg-stone-50 text-yellow-700 px-4 py-2 rounded-xl text-sm font-bold hover:bg-yellow-100 transition-all">
+        <a href="<?= BASE_URL ?>laporan/hpp" class="group flex items-center gap-2 bg-stone-50 dark:bg-stone-800 text-yellow-700 dark:text-brand-yellow px-4 py-2 rounded-xl text-sm font-bold hover:bg-yellow-100 dark:hover:bg-stone-700 transition-all">
             Laporan HPP
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
         </a>
-        <a href="<?= BASE_URL ?>laporan/waste" class="group flex items-center gap-2 bg-rose-50 text-rose-700 px-4 py-2 rounded-xl text-sm font-bold hover:bg-rose-100 transition-all">
+        <a href="<?= BASE_URL ?>laporan/waste" class="group flex items-center gap-2 bg-rose-50 dark:bg-stone-800 text-rose-700 dark:text-rose-400 px-4 py-2 rounded-xl text-sm font-bold hover:bg-rose-100 dark:hover:bg-stone-700 transition-all">
             Laporan Waste
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
         </a>

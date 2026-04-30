@@ -29,9 +29,15 @@ class MenuController extends BaseController {
         $bahan = $this->bahanModel->all();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $gambar = $this->uploadImage($_FILES['gambar']);
+            
             $data = [
                 'nama' => $_POST['nama'],
-                'harga_jual' => $_POST['harga_jual']
+                'harga_jual' => $_POST['harga_jual'],
+                'gambar' => $gambar,
+                'is_best_seller' => isset($_POST['is_best_seller']) ? 1 : 0,
+                'is_available' => isset($_POST['is_available']) ? 1 : 0,
+                'kategori' => $_POST['kategori'] ?? 'Makanan'
             ];
             
             $menuId = $this->menuModel->create($data);
@@ -73,9 +79,25 @@ class MenuController extends BaseController {
         $resep = $this->resepModel->getByMenu($id);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $gambar = $menu['gambar'];
+            if (isset($_FILES['gambar']) && $_FILES['gambar']['error'] !== 4) {
+                $new_gambar = $this->uploadImage($_FILES['gambar']);
+                if ($new_gambar) {
+                    // Hapus gambar lama jika ada
+                    if ($gambar && file_exists("public/img/menu/" . $gambar)) {
+                        unlink("public/img/menu/" . $gambar);
+                    }
+                    $gambar = $new_gambar;
+                }
+            }
+
             $data = [
                 'nama' => $_POST['nama'],
-                'harga_jual' => $_POST['harga_jual']
+                'harga_jual' => $_POST['harga_jual'],
+                'gambar' => $gambar,
+                'is_best_seller' => isset($_POST['is_best_seller']) ? 1 : 0,
+                'is_available' => isset($_POST['is_available']) ? 1 : 0,
+                'kategori' => $_POST['kategori'] ?? 'Makanan'
             ];
             
             if ($this->menuModel->update($id, $data)) {
@@ -109,7 +131,61 @@ class MenuController extends BaseController {
         ]);
     }
 
+    private function uploadImage($file) {
+        if (!isset($file) || $file['error'] === 4) {
+            return null;
+        }
+
+        $target_dir = "public/img/menu/";
+        if (!is_dir($target_dir)) {
+            mkdir($target_dir, 0777, true);
+        }
+
+        $filename = time() . '_' . basename($file["name"]);
+        $target_file = $target_dir . $filename;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+        // Validasi gambar
+        $check = getimagesize($file["tmp_name"]);
+        if($check === false) return null;
+
+        // Validasi ukuran
+        if ($file["size"] > 2000000) return null;
+
+        // Validasi format
+        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "webp") {
+            return null;
+        }
+
+        if (move_uploaded_file($file["tmp_name"], $target_file)) {
+            return $filename;
+        }
+
+        return null;
+    }
+
+    public function toggleStatus() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = $_POST['id'];
+            $field = $_POST['field']; // 'is_best_seller' or 'is_available'
+            $value = $_POST['value'];
+
+            $stmt = $this->menuModel->getConnection()->prepare("UPDATE menus SET $field = ? WHERE id = ?");
+            if ($stmt->execute([$value, $id])) {
+                echo json_encode(['success' => true]);
+            } else {
+                echo json_encode(['success' => false]);
+            }
+            exit;
+        }
+    }
+
     public function delete($id) {
+        $menu = $this->menuModel->find($id);
+        if ($menu && $menu['gambar'] && file_exists("public/img/menu/" . $menu['gambar'])) {
+            unlink("public/img/menu/" . $menu['gambar']);
+        }
+        
         if ($this->menuModel->delete($id)) {
             $this->setFlash('success', 'Menu berhasil dihapus');
         } else {

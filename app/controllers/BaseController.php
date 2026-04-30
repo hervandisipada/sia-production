@@ -15,6 +15,8 @@ class BaseController {
             // Require main layout jika bukan view yang tidak butuh layout (misal login)
             if (strpos($view, 'auth/') !== false) {
                 echo $content;
+            } elseif (strpos($view, 'home/') !== false) {
+                require __DIR__ . '/../views/layouts/public.php';
             } else {
                 require __DIR__ . '/../views/layouts/main.php';
             }

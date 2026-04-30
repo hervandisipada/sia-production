@@ -57,12 +57,12 @@
                     <tr class="hover:bg-stone-50/50 transition-colors">
                         <td class="px-6 py-4 text-sm text-stone-600 font-medium"><?= date('d/m/Y', strtotime($row['tanggal'])) ?></td>
                         <td class="px-6 py-4 text-sm text-stone-800 font-bold"><?= htmlspecialchars($row['nama_menu']) ?></td>
-                        <td class="px-6 py-4 text-sm text-stone-700 text-right font-medium">Rp <?= number_format($row['total_biaya'] ?? 0, 0, ',', '.') ?></td>
+                        <td class="px-6 py-4 text-sm text-stone-700 text-right font-medium">Rp<?= number_format($row['total_biaya'] ?? 0, 0, ',', '.') ?></td>
                         <td class="px-6 py-4 text-center">
                             <span class="bg-stone-100 text-stone-600 px-2 py-1 rounded-lg font-bold text-xs"><?= htmlspecialchars($row['jumlah_baik']) ?></span>
                         </td>
                         <td class="px-6 py-4 text-right">
-                            <span class="text-sm font-black text-brand-yellow">Rp <?= number_format($hpp, 0, ',', '.') ?></span>
+                            <span class="text-sm font-black text-brand-yellow">Rp<?= number_format($hpp, 0, ',', '.') ?></span>
                         </td>
                     </tr>
                     <?php endforeach; ?>

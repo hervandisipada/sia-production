@@ -30,11 +30,4 @@ class DashboardController extends BaseController {
         
         $this->view('dashboard/index', $data);
     }
-
-    public function about() {
-        $data = [
-            'title' => 'Team Developers'
-        ];
-        $this->view('home/about', $data);
-    }
 }
