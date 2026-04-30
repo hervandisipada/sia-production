@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?? 'SIA Produksi RM Pawon Selaras' ?></title>
+    <title><?= $title ?? 'SIA Produksi Pawon Selaras' ?></title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -11,89 +11,105 @@
                 extend: {
                     colors: {
                         brand: {
-                            cream: '#FFF7D4',
                             yellow: '#FFD95A',
-                            gold: '#C07F00',
-                            dark: '#4C3D3D',
                         }
                     }
                 }
             }
         }
     </script>
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/style.css">
+    <style type="text/tailwindcss">
+        @layer components {
+            .btn-primary {
+                @apply bg-brand-yellow text-stone-900 font-bold py-2.5 px-6 rounded-xl shadow-lg shadow-brand-yellow/30 hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-2;
+            }
+            .btn-secondary {
+                @apply bg-white border border-stone-200 text-stone-700 py-2.5 px-6 rounded-xl font-semibold shadow-sm hover:bg-stone-50 active:scale-[0.98] transition-all flex items-center justify-center gap-2;
+            }
+        }
+    </style>
 </head>
-<body class="bg-brand-cream font-sans text-brand-dark antialiased">
+<body class="bg-stone-50 font-sans text-stone-900 antialiased">
 
-    <div class="flex h-screen overflow-hidden bg-brand-cream">
+    <div class="flex h-screen overflow-hidden bg-stone-50">
         
         <!-- Sidebar -->
-        <aside class="w-72 bg-brand-dark text-white flex-shrink-0 hidden lg:flex flex-col shadow-2xl">
-            <div class="p-6 bg-brand-dark border-b border-white/10">
+        <aside class="w-72 bg-white flex-shrink-0 hidden lg:flex flex-col border-r border-stone-200">
+            <div class="p-6 bg-white border-b border-stone-100">
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-brand-gold rounded-xl flex items-center justify-center shadow-lg shadow-brand-gold/20">
+                    <div class="w-10 h-10 bg-brand-yellow rounded-xl flex items-center justify-center shadow-lg shadow-brand-yellow/20">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                         </svg>
                     </div>
                     <div>
-                        <h1 class="text-lg font-bold tracking-tight">RM Pawon</h1>
-                        <p class="text-[10px] text-slate-400 uppercase tracking-[0.2em] font-semibold">SIA Produksi</p>
+                        <h1 class="text-lg font-bold tracking-tight">Pawon Selaras</h1>
+                        <p class="text-[10px] text-stone-400 uppercase tracking-[0.2em] font-semibold">SIA Produksi</p>
                     </div>
                 </div>
             </div>
             
             <nav class="flex-1 overflow-y-auto p-4 space-y-1 custom-scrollbar">
-                <p class="px-4 py-2 text-[10px] font-bold text-slate-500 uppercase tracking-widest">Menu Utama</p>
+                <p class="px-4 py-2 text-[10px] font-bold text-stone-400 uppercase tracking-widest">Menu Utama</p>
                 
-                <a href="<?= BASE_URL ?>dashboard" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group <?= ($title ?? '') === 'Dashboard' ? 'bg-brand-yellow text-brand-dark shadow-lg shadow-brand-yellow/20' : 'text-white/60 hover:bg-white/10 hover:text-white' ?>">
+                <a href="<?= BASE_URL ?>dashboard" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group <?= ($title ?? '') === 'Dashboard' ? 'bg-brand-yellow text-stone-900 shadow-lg shadow-brand-yellow/20' : 'text-stone-500 hover:bg-stone-50 hover:text-stone-900' ?>">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                     </svg>
                     <span class="font-medium">Dashboard</span>
                 </a>
 
-                <a href="<?= BASE_URL ?>menu" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group <?= ($title ?? '') === 'Manajemen Menu' ? 'bg-brand-yellow text-brand-dark shadow-lg shadow-brand-yellow/20' : 'text-white/60 hover:bg-white/10 hover:text-white' ?>">
+                <a href="<?= BASE_URL ?>menu" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group <?= ($title ?? '') === 'Manajemen Menu' ? 'bg-brand-yellow text-stone-900 shadow-lg shadow-brand-yellow/20' : 'text-stone-500 hover:bg-stone-50 hover:text-stone-900' ?>">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                     </svg>
                     <span class="font-medium">Manajemen Menu</span>
                 </a>
 
-                <a href="<?= BASE_URL ?>bahan" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group <?= (strpos($title ?? '', 'Bahan Baku') !== false) ? 'bg-brand-yellow text-brand-dark shadow-lg shadow-brand-yellow/20' : 'text-white/60 hover:bg-white/10 hover:text-white' ?>">
+                <a href="<?= BASE_URL ?>bahan" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group <?= (strpos($title ?? '', 'Bahan Baku') !== false) ? 'bg-brand-yellow text-stone-900 shadow-lg shadow-brand-yellow/20' : 'text-stone-500 hover:bg-stone-50 hover:text-stone-900' ?>">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                     </svg>
                     <span class="font-medium">Bahan Baku</span>
                 </a>
 
-                <p class="px-4 py-2 mt-6 text-[10px] font-bold text-slate-500 uppercase tracking-widest">Produksi & Stok</p>
+                <p class="px-4 py-2 mt-6 text-[10px] font-bold text-stone-400 uppercase tracking-widest">Produksi & Stok</p>
 
-                <a href="<?= BASE_URL ?>produksi/rencana" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group <?= (strpos($title ?? '', 'Produksi') !== false && strpos($title ?? '', 'Laporan') === false) ? 'bg-brand-yellow text-brand-dark shadow-lg shadow-brand-yellow/20' : 'text-white/60 hover:bg-white/10 hover:text-white' ?>">
+                <a href="<?= BASE_URL ?>produksi/rencana" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group <?= (strpos($title ?? '', 'Produksi') !== false && strpos($title ?? '', 'Laporan') === false) ? 'bg-brand-yellow text-stone-900 shadow-lg shadow-brand-yellow/20' : 'text-stone-500 hover:bg-stone-50 hover:text-stone-900' ?>">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                     </svg>
                     <span class="font-medium">Proses Produksi</span>
                 </a>
 
-                <a href="<?= BASE_URL ?>laporan/produksi" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group <?= (strpos($title ?? '', 'Laporan') === 0) ? 'bg-brand-yellow text-brand-dark shadow-lg shadow-brand-yellow/20' : 'text-white/60 hover:bg-white/10 hover:text-white' ?>">
+                <a href="<?= BASE_URL ?>laporan/produksi" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group <?= (strpos($title ?? '', 'Laporan') === 0) ? 'bg-brand-yellow text-stone-900 shadow-lg shadow-brand-yellow/20' : 'text-stone-500 hover:bg-stone-50 hover:text-stone-900' ?>">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
                     <span class="font-medium">Laporan Produksi</span>
                 </a>
+
             </nav>
 
-            <div class="p-4 bg-brand-dark border-t border-white/10">
-                <div class="flex items-center gap-3 p-3 rounded-xl bg-white/5">
-                    <div class="w-10 h-10 rounded-full bg-brand-yellow flex items-center justify-center font-bold text-brand-dark shadow-inner">
+            <div class="px-4 pb-2">
+                <a href="<?= BASE_URL ?>dashboard/about" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group <?= ($title ?? '') === 'Team Developers' ? 'bg-brand-yellow text-stone-900 shadow-lg shadow-brand-yellow/20' : 'text-stone-500 hover:bg-stone-50 hover:text-stone-900' ?>">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="font-medium text-sm">Team Developers</span>
+                </a>
+            </div>
+
+            <div class="p-4 bg-white border-t border-stone-100">
+                <div class="flex items-center gap-3 p-3 rounded-xl bg-stone-50">
+                    <div class="w-10 h-10 rounded-full bg-brand-yellow flex items-center justify-center font-bold text-stone-900 shadow-inner">
                         <?= strtoupper(substr($_SESSION['user']['name'] ?? 'U', 0, 1)) ?>
                     </div>
                     <div class="flex-1 overflow-hidden">
-                        <p class="text-sm font-semibold truncate"><?= $_SESSION['user']['name'] ?? 'User' ?></p>
-                        <p class="text-[10px] text-slate-400 truncate uppercase font-bold tracking-tighter"><?= $_SESSION['user']['role'] ?? 'Staff' ?></p>
+                        <p class="text-sm font-semibold truncate text-stone-900"><?= $_SESSION['user']['name'] ?? 'User' ?></p>
+                        <p class="text-[10px] text-stone-500 truncate uppercase font-bold tracking-tighter"><?= $_SESSION['user']['role'] ?? 'Staff' ?></p>
                     </div>
-                    <a href="<?= BASE_URL ?>auth/logout" class="text-slate-400 hover:text-rose-500 transition-colors" title="Logout">
+                    <a href="<?= BASE_URL ?>auth/logout" class="text-stone-400 hover:text-rose-500 transition-colors" title="Logout">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                         </svg>
@@ -106,25 +122,25 @@
         <div class="flex-1 flex flex-col min-w-0">
             
             <!-- Navbar -->
-            <header class="bg-white border-b border-brand-dark/10 h-20 flex items-center justify-between px-8 sticky top-0 z-10 shadow-sm">
+            <header class="bg-white border-b border-stone-900/10 h-20 flex items-center justify-between px-8 sticky top-0 z-10 shadow-sm">
                 <div class="flex items-center gap-4">
-                    <button class="lg:hidden p-2 rounded-lg bg-slate-100 text-slate-600">
+                    <button class="lg:hidden p-2 rounded-lg bg-stone-100 text-stone-600">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                         </svg>
                     </button>
-                    <h2 class="text-xl font-bold text-slate-800 tracking-tight"><?= $title ?? 'Dashboard' ?></h2>
+                    <h2 class="text-xl font-bold text-stone-800 tracking-tight"><?= $title ?? 'Dashboard' ?></h2>
                 </div>
                 <div class="flex items-center gap-6">
                     <div class="relative hidden md:block">
-                        <input type="text" placeholder="Cari data..." class="w-64 bg-brand-cream border-none rounded-xl px-4 py-2.5 text-sm focus:ring-2 bg-brand-yellow/20 transition-all">
+                        <input type="text" placeholder="Cari data..." class="w-64 bg-stone-50 border-none rounded-xl px-4 py-2.5 text-sm focus:ring-2 bg-brand-yellow/20 transition-all">
                     </div>
-                    <div class="flex items-center gap-3 border-l pl-6 border-brand-dark/10">
+                    <div class="flex items-center gap-3 border-l pl-6 border-stone-900/10">
                         <div class="text-right hidden sm:block">
-                            <p class="text-sm font-bold text-slate-800"><?= $_SESSION['user']['name'] ?? 'User' ?></p>
-                            <p class="text-[10px] text-slate-500 font-bold uppercase"><?= $_SESSION['user']['role'] ?? 'Staff' ?></p>
+                            <p class="text-sm font-bold text-stone-800"><?= $_SESSION['user']['name'] ?? 'User' ?></p>
+                            <p class="text-[10px] text-stone-500 font-bold uppercase"><?= $_SESSION['user']['role'] ?? 'Staff' ?></p>
                         </div>
-                        <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-600 font-bold">
+                        <div class="w-10 h-10 rounded-xl bg-stone-100 flex items-center justify-center text-stone-600 font-bold">
                             <?= strtoupper(substr($_SESSION['user']['name'] ?? 'U', 0, 1)) ?>
                         </div>
                     </div>
@@ -132,7 +148,7 @@
             </header>
 
             <!-- Content -->
-            <main class="flex-1 overflow-x-hidden overflow-y-auto bg-brand-cream p-8 custom-scrollbar">
+            <main class="flex-1 overflow-x-hidden overflow-y-auto bg-stone-50 p-8 custom-scrollbar">
                 
                 <?php if (isset($_SESSION['flash'])): ?>
                     <div class="p-4 mb-8 text-sm rounded-2xl flex items-center gap-3 animate-fade-in <?= $_SESSION['flash']['type'] === 'success' ? 'bg-emerald-50 text-emerald-800 border border-emerald-100' : 'bg-rose-50 text-rose-800 border border-rose-100' ?>">
@@ -159,3 +175,4 @@
     <script src="<?= BASE_URL ?>js/main.js"></script>
 </body>
 </html>
+

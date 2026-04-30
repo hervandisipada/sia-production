@@ -1,11 +1,19 @@
 <?php
 session_start();
+date_default_timezone_set('Asia/Makassar');
 
 // Base URL definition
 $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
-$base_url = $protocol . "://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['SCRIPT_NAME']);
-$base_url = rtrim($base_url, '/public') . '/public'; // Ensure it points to public
-define('BASE_URL', $base_url . '/');
+$host = $_SERVER['HTTP_HOST'];
+$script_name = dirname($_SERVER['SCRIPT_NAME']);
+$base_url = $protocol . "://" . $host . $script_name;
+
+// Jika dijalankan di localhost dan di dalam subfolder, pastikan link mengarah ke /public
+if ($host === 'localhost' || $host === '127.0.0.1') {
+    $base_url = rtrim($base_url, '/public') . '/public';
+}
+
+define('BASE_URL', rtrim($base_url, '/') . '/');
 
 // Autoloading simple
 require_once __DIR__ . '/../config/database.php';
