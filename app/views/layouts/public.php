@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?? 'SIA Produksi Pawon Selaras' ?></title>
+    <link rel="icon" href="<?= BASE_URL ?>img/logo.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         // Default to dark mode unless light is explicitly set
@@ -48,14 +49,7 @@
         class="bg-white/80 dark:bg-stone-900/80 backdrop-blur-md sticky top-0 z-50 border-b border-stone-200 dark:border-white/5 transition-colors">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="<?= BASE_URL ?>home/index" class="flex items-center gap-3">
-                <div
-                    class="w-10 h-10 bg-brand-yellow rounded-xl flex items-center justify-center shadow-lg shadow-brand-yellow/20">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-stone-900" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                    </svg>
-                </div>
+                <img src="<?= BASE_URL ?>img/logo.png" alt="Logo" class="w-10 h-10 object-cover rounded-xl shadow-lg shadow-brand-yellow/20">
                 <span class="text-xl font-extrabold tracking-tighter text-stone-900 dark:text-white transition-colors">
                     Pawon <span class="text-brand-yellow">Selaras</span>
                 </span>

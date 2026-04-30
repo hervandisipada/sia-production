@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?? 'Register' ?></title>
+    <link rel="icon" href="<?= BASE_URL ?>img/logo.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         // Default to dark mode unless light is explicitly set
@@ -66,14 +67,7 @@
 
     <div class="w-full max-w-md animate-fade-in py-4">
         <div class="text-center mb-4">
-            <div
-                class="inline-flex items-center justify-center w-12 h-12 bg-brand-yellow rounded-xl shadow-xl shadow-brand-yellow/20 mb-2 transform hover:rotate-6 transition-transform duration-300">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-stone-900" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
-                </svg>
-            </div>
+                <img src="<?= BASE_URL ?>img/logo.png" alt="Logo" class="w-12 h-12 object-cover rounded-xl shadow-xl shadow-brand-yellow/20 mb-2 transform hover:rotate-6 transition-transform duration-300">
             <h1 class="text-2xl font-black text-stone-900 dark:text-stone-50 tracking-tight">Pawon Selaras</h1>
             <p class="text-stone-500 dark:text-stone-400 text-xs font-medium">Sistem Informasi Produksi</p>
         </div>
