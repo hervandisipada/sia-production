@@ -162,20 +162,15 @@
                 </div>
             </form>
 
-            <div class="mt-8 relative flex items-center justify-center">
-                <div class="absolute inset-x-0 h-px bg-stone-200 dark:bg-stone-700"></div>
-                <span class="relative bg-white dark:bg-stone-900 px-4 text-xs font-bold text-stone-400 tracking-widest">ATAU</span>
-            </div>
-
-            <div class="mt-8 text-center text-sm text-stone-500 dark:text-stone-400">
+            <div class="mt-8 text-center text-base text-stone-500 dark:text-stone-400">
                 Belum punya akun? <a href="<?= BASE_URL ?>auth/register" class="text-stone-900 dark:text-stone-50 font-bold hover:underline transition-colors">Daftar</a>
             </div>
-
-            <p class="text-center text-stone-400 text-[10px] mt-12 font-medium tracking-wide">
-                &copy; <?= date('Y') ?> Hrvndi PTIK. All rights reserved.
-            </p>
         </div>
     </div>
+
+    <p class="text-center text-stone-400 text-xs mt-8 font-medium tracking-wide">
+        &copy; <?= date('Y') ?> Hrvndi PTIK. All rights reserved.
+    </p>
 
     <script>
         var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');

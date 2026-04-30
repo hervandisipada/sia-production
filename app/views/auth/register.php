@@ -157,16 +157,16 @@
                 </div>
             </form>
 
-            <div class="mt-8 text-center text-xs text-stone-500 dark:text-stone-400">
+            <div class="mt-8 text-center text-base text-stone-500 dark:text-stone-400">
                 Sudah punya akun? 
                 <a href="<?= BASE_URL ?>auth/index" class="text-stone-900 dark:text-stone-50 font-bold hover:underline">Masuk</a>
             </div>
-
-            <p class="text-center text-stone-400 text-[10px] mt-8 font-medium tracking-wide">
-                &copy; <?= date('Y') ?> Hrvndi PTIK. All rights reserved.
-            </p>
         </div>
     </div>
+
+    <p class="text-center text-stone-400 text-xs mt-8 font-medium tracking-wide">
+        &copy; <?= date('Y') ?> Hrvndi PTIK. All rights reserved.
+    </p>
 
     <script>
         var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
