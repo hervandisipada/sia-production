@@ -1,15 +1,22 @@
 <?php
 
 class BahanController extends BaseController {
-    
+
     private $bahanModel;
 
     public function __construct() {
         if (!isset($_SESSION['user'])) {
             $this->redirect('auth/index');
         }
+        require_once __DIR__ . '/../models/Bahan.php';
         $this->bahanModel = new Bahan();
     }
+
+    public function tambah() {
+        // Alias ke create() untuk akses cepat dashboard
+        $this->create();
+    }
+
 
     public function index() {
         $bahan = $this->bahanModel->all();
@@ -27,7 +34,7 @@ class BahanController extends BaseController {
                 'satuan' => $_POST['satuan'],
                 'harga_per_unit' => $_POST['harga_per_unit']
             ];
-            
+
             if ($this->bahanModel->create($data)) {
                 $this->setFlash('success', 'Bahan baku berhasil ditambahkan');
                 $this->redirect('bahan/index');
@@ -35,7 +42,7 @@ class BahanController extends BaseController {
                 $this->setFlash('error', 'Gagal menambahkan bahan baku');
             }
         }
-        
+
         $this->view('bahan/create', [
             'title' => 'Tambah Bahan Baku'
         ]);
@@ -54,7 +61,7 @@ class BahanController extends BaseController {
                 'satuan' => $_POST['satuan'],
                 'harga_per_unit' => $_POST['harga_per_unit']
             ];
-            
+
             if ($this->bahanModel->update($id, $data)) {
                 $this->setFlash('success', 'Bahan baku berhasil diupdate');
                 $this->redirect('bahan/index');
@@ -62,7 +69,7 @@ class BahanController extends BaseController {
                 $this->setFlash('error', 'Gagal mengupdate bahan baku');
             }
         }
-        
+
         $this->view('bahan/edit', [
             'title' => 'Edit Bahan Baku',
             'bahan' => $bahan

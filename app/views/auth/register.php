@@ -65,12 +65,15 @@
         </svg>
     </button>
 
-    <div class="w-full max-w-md animate-fade-in py-4">
-        <div class="text-center mb-4">
-                <img src="<?= BASE_URL ?>img/logo.png" alt="Logo" class="w-12 h-12 object-cover rounded-xl shadow-xl shadow-brand-yellow/20 mb-2 transform hover:rotate-6 transition-transform duration-300">
-            <h1 class="text-2xl font-black text-stone-900 dark:text-stone-50 tracking-tight">Pawon Selaras</h1>
-            <p class="text-stone-500 dark:text-stone-400 text-xs font-medium">Sistem Informasi Produksi</p>
+    <div class="flex flex-col md:flex-row max-w-4xl mx-auto animate-fade-in py-4">
+        <div class="flex items-center justify-center md:w-1/2 p-4">
+            <img src="<?= BASE_URL ?>img/logo.png" alt="Logo" class="w-32 h-32 md:w-80 md:h-80 object-cover rounded-xl shadow-xl shadow-brand-yellow/20">
         </div>
+        <div class="w-full md:w-1/2 flex flex-col items-center">
+            <div class="text-center mb-4">
+                <h1 class="text-2xl font-black text-stone-900 dark:text-stone-50 tracking-tight">Pawon Selaras</h1>
+                <p class="text-stone-500 dark:text-stone-400 text-xs font-medium">Sistem Informasi Produksi</p>
+            </div>
 
         <div
             class="bg-white/80 dark:bg-stone-900/80 backdrop-blur-xl p-6 rounded-2xl shadow-2xl border border-white dark:border-stone-700/50">

@@ -3,9 +3,13 @@
     <div
         class="relative overflow-hidden rounded-[2.5rem] bg-white dark:bg-stone-900 text-stone-900 dark:text-white p-8 md:p-16 border border-stone-200 dark:border-white/10 shadow-xl dark:shadow-2xl transition-colors duration-300">
         <div class="relative z-10 max-w-2xl text-left">
-            <span
-                class="inline-block px-4 py-1 rounded-full bg-brand-yellow text-stone-900 text-xs font-bold uppercase tracking-widest mb-6 shadow-sm">RM
-                Pawon Selaras</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="<?= BASE_URL ?>img/logo.png" alt="Logo Small" class="w-12 h-12 object-cover rounded-2xl shadow-xl shadow-brand-yellow/20 border-2 border-brand-yellow">
+                <span
+                    class="inline-block px-4 py-1 rounded-full bg-brand-yellow text-stone-900 text-xs font-bold uppercase tracking-widest shadow-sm">
+                    RM Pawon Selaras
+                </span>
+            </div>
             <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 tracking-tight">
                 Cita Rasa <span class="text-brand-yellow">Autentik</span> di Setiap Hidangan
             </h1>
@@ -26,12 +30,18 @@
             </div>
         </div>
 
-        <!-- Abstract Decoration -->
-        <div class="absolute top-0 right-0 w-1/2 h-full hidden lg:block">
-            <div class="absolute inset-0 bg-gradient-to-l from-white dark:from-stone-900 to-transparent z-10"></div>
-            <div class="w-full h-full bg-brand-yellow/10 rounded-full blur-3xl absolute -right-20 -top-20"></div>
-            <div class="w-full h-full bg-emerald-500/10 rounded-full blur-3xl absolute -right-40 -bottom-40"></div>
+        <!-- Abstract Decoration & Logo Watermark -->
+        <div class="absolute top-0 right-0 w-full lg:w-1/2 h-full flex items-center justify-center pointer-events-none overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-l from-white/50 dark:from-stone-900/50 to-transparent z-10 hidden lg:block"></div>
+            <div class="w-96 h-96 bg-brand-yellow/10 rounded-full blur-3xl absolute -right-20 -top-20"></div>
+            <div class="w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl absolute -right-40 -bottom-40"></div>
+            
+            <div class="relative z-0 opacity-[0.03] dark:opacity-[0.08] lg:opacity-10 dark:lg:opacity-20 transform lg:translate-x-24 rotate-12 transition-all duration-1000">
+                <img src="<?= BASE_URL ?>img/logo.png" alt="Logo Watermark" class="w-80 md:w-[40rem] h-auto object-contain">
+            </div>
         </div>
+
+
     </div>
 
     <!-- Stats/Features -->

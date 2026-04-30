@@ -71,6 +71,10 @@ class LaporanController extends BaseController {
         $stmt->execute([$dari, $sampai]);
         $data = $stmt->fetchAll();
 
+        if (isset($_GET['export']) && $_GET['export'] === 'csv') {
+            $this->exportHppCsv($data, $dari, $sampai);
+        }
+
         $this->view('laporan/hpp', [
             'title' => 'Laporan HPP',
             'data' => $data,
@@ -94,6 +98,10 @@ class LaporanController extends BaseController {
         $stmt->execute([$dari, $sampai]);
         $data = $stmt->fetchAll();
 
+        if (isset($_GET['export']) && $_GET['export'] === 'csv') {
+            $this->exportWasteCsv($data, $dari, $sampai);
+        }
+
         $this->view('laporan/waste', [
             'title' => 'Laporan Waste (Produk Rusak)',
             'data' => $data,
@@ -116,6 +124,43 @@ class LaporanController extends BaseController {
                 $row['jumlah_baik'] !== null ? $row['jumlah_baik'] : 0,
                 $row['jumlah_rusak'] !== null ? $row['jumlah_rusak'] : 0,
                 $row['status']
+            ]);
+        }
+        fclose($output);
+        exit;
+    }
+
+    private function exportHppCsv($data, $dari, $sampai) {
+        header('Content-Type: text/csv; charset=utf-8');
+        header('Content-Disposition: attachment; filename=Laporan_HPP_' . $dari . '_sd_' . $sampai . '.csv');
+        $output = fopen('php://output', 'w');
+        fputcsv($output, ['Tanggal', 'Item Menu', 'Total Biaya Bahan', 'Hasil Baik', 'HPP per Unit']);
+        
+        foreach ($data as $row) {
+            $hpp = $row['jumlah_baik'] > 0 ? ($row['total_biaya'] / $row['jumlah_baik']) : 0;
+            fputcsv($output, [
+                date('Y-m-d', strtotime($row['tanggal'])),
+                $row['nama_menu'],
+                $row['total_biaya'] ?? 0,
+                $row['jumlah_baik'],
+                round($hpp, 2)
+            ]);
+        }
+        fclose($output);
+        exit;
+    }
+
+    private function exportWasteCsv($data, $dari, $sampai) {
+        header('Content-Type: text/csv; charset=utf-8');
+        header('Content-Disposition: attachment; filename=Laporan_Waste_' . $dari . '_sd_' . $sampai . '.csv');
+        $output = fopen('php://output', 'w');
+        fputcsv($output, ['Tanggal', 'Item Menu', 'Jumlah Rusak (Waste)']);
+        
+        foreach ($data as $row) {
+            fputcsv($output, [
+                date('Y-m-d', strtotime($row['tanggal'])),
+                $row['nama_menu'],
+                $row['jumlah_rusak']
             ]);
         }
         fclose($output);

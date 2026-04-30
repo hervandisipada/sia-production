@@ -22,6 +22,11 @@ class ProduksiController extends BaseController {
         require_once __DIR__ . '/../models/Bahan.php';
         $this->bahanModel = new Bahan();
     }
+    
+    public function tambah() {
+        // Alias ke rencana() untuk akses cepat dari dashboard
+        $this->rencana();
+    }
 
     // Tampilkan daftar produksi yang sedang berjalan atau rencana
     public function rencana() {
